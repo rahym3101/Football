@@ -22,9 +22,9 @@ Route::controller(HomeController::class)
         Route::get('','index')->name('home');
     });
 
-Route::controller(ClubController::class)
-    ->prefix('clubs')
-    ->name('clubs.')
-    ->group(function (){
-       Route::get('','index')->name('club');
-    });
+//Route::controller(ClubController::class)
+//    ->prefix('clubs')
+//    ->name('clubs.')
+//    ->group(function (){
+//       Route::get('','index')->name('club');
+//    });
