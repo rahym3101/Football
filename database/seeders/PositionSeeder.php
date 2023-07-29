@@ -18,7 +18,8 @@ class PositionSeeder extends Seeder
 
         foreach ($positions as $position) {
             $obj= new Position();
-            $obj->name = $position;
+            $obj->name = $position['name'];
+            $obj->name_en = $position['name_en'];
             $obj->save();
         }
     }
