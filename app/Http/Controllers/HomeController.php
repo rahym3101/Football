@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function Symfony\Component\Mime\Header\all;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $team = Team::all();
+        $teams = Team::get();
 
         return view('home.index')
             ->with([
-                'team'=> $team,
+                'teams'=> $teams,
             ]);
     }
 

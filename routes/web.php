@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(HomeController::class)
-    ->prefix('teams')
-    ->name('teams.')
     ->group(function (){
         Route::get('','index')->name('home');
         Route::get('/locale/{locale}', 'locale')->name('locale')->whereIn('locale', ['tm', 'en']);
