@@ -10,9 +10,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        return Team::with('club', 'game', 'news', 'player')
-//            ->inRandomOrder()
-//            ->first();
+        $team = Team::orderby('id','desc')
+            ->take(12)
+            ->get();
+
+        return view('home.index')
+            ->with([
+                'team'=> $team,
+            ]);
     }
 }
 

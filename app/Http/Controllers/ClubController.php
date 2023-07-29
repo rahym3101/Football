@@ -17,16 +17,36 @@ class ClubController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'Team' => 'nullable|integer|min:1',
-            'Player' => 'nullable|integer|min:1',
-            'Game' => 'nullable|integer|min:1',
-            'Coach' => 'nullable|integer|min:1',
-            'Post' => 'nullable|integer|min:1',
+            'Team' => 'nullable|integer|min:0',
+            'Team.*' => 'nullable|integer|min:1',
+            'Player' => 'nullable|integer|min:0',
+            'Player.*' => 'nullable|integer|min:1',
+            'Game' => 'nullable|integer|min:0',
+            'Game.*' => 'nullable|integer|min:1',
+            'Coach' => 'nullable|integer|min:0',
+            'Coach.*' => 'nullable|integer|min:1',
+            'Post' => 'nullable|integer|min:0',
+            'Post.*' => 'nullable|integer|min:1',
         ]);
 
-        return view('home.index')
+        $teams = Team::orderBy('name')
+            ->get();
+        $players = Player::orderBy('name')
+            ->get();
+        $games= Game::orderBy('name')
+            ->get();
+        $coaches = Coach::orderBy('name')
+            ->get();
+        $posts = Post::orderBy('name')
+            ->get();
+
+        return view('club.index')
             ->with([
-                'clubs' => $club,
+                'teams' => $teams,
+                'players' => $players,
+                'games' => $games,
+                'coaches' => $coaches,
+                'posts' => $posts,
             ]);
     }
 }
