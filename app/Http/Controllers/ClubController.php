@@ -33,11 +33,11 @@ class ClubController extends Controller
             ->get();
         $players = Player::orderBy('name')
             ->get();
-        $games= Game::orderBy('name')
+        $games= Game::orderBy('id')
             ->get();
         $coaches = Coach::orderBy('name')
             ->get();
-        $posts = Post::orderBy('name')
+        $posts = Post::orderBy('title')
             ->get();
 
         return view('club.index')
