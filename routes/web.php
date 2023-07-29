@@ -22,5 +22,5 @@ Route::controller(HomeController::class)
 
 Route::controller(ClubController::class)
     ->group(function (){
-       Route::get('','index')->name('index');
+       Route::get('','index')->name('club');
     });
