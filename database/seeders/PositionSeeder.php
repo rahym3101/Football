@@ -9,10 +9,10 @@ class PositionSeeder extends Seeder
     public function run(): void
     {
         $positions = [
-            'Attacker',
-            'Midfielder',
-            'Defenfer',
-            'Goalkeeper',
+            ['name' => 'Hüjümçi', 'name_en' => 'Attacker'],
+            ['name' => 'Ýarymgoragçy', 'name_en' => 'Midfielder'],
+            ['name' => 'Goragçy', 'name_en' => 'Defender'],
+            ['name' => 'Derwezeban', 'name_en' => 'Goalkeeper'],
             ];
 
 

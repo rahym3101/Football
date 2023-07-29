@@ -20,11 +20,12 @@ Route::controller(HomeController::class)
     ->name('teams.')
     ->group(function (){
         Route::get('','index')->name('home');
+        Route::get('/locale/{locale}', 'locale')->name('locale')->whereIn('locale', ['tm', 'en']);
     });
 
-//Route::controller(ClubController::class)
-//    ->prefix('clubs')
-//    ->name('clubs.')
-//    ->group(function (){
-//       Route::get('','index')->name('club');
-//    });
+Route::controller(ClubController::class)
+    ->prefix('clubs')
+    ->name('clubs.')
+    ->group(function (){
+       Route::get('','index')->name('club');
+    });

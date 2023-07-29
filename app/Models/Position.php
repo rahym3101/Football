@@ -19,4 +19,16 @@ class Position extends Model
     {
         return $this->hasMany(Player::class);
     }
+
+    public function getName()
+    {
+        $locale = app()->getLocale();
+        if ($locale == 'tm') {
+            return $this->name;
+        } elseif ($locale == 'en') {
+            return $this->name_en ?: $this->name;
+        } else {
+            return $this->name;
+        }
+    }
 }
