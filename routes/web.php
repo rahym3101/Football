@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(HomeController::class)
+    ->prefix('teams')
+    ->name('teams.')
     ->group(function (){
         Route::get('','index')->name('home');
     });
 
 Route::controller(ClubController::class)
+    ->prefix('clubs')
+    ->name('clubs.')
     ->group(function (){
        Route::get('','index')->name('club');
     });
