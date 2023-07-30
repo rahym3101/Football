@@ -14,39 +14,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ClubController extends Controller
 {
-    public function index(Request $request)
+    public function show($id)
     {
         $request->validate([
-            'Team' => 'nullable|integer|min:0',
-            'Team.*' => 'nullable|integer|min:1',
-            'Player' => 'nullable|integer|min:0',
-            'Player.*' => 'nullable|integer|min:1',
-            'Game' => 'nullable|integer|min:0',
-            'Game.*' => 'nullable|integer|min:1',
-            'Coach' => 'nullable|integer|min:0',
-            'Coach.*' => 'nullable|integer|min:1',
-            'Post' => 'nullable|integer|min:0',
-            'Post.*' => 'nullable|integer|min:1',
-        ]);
+            
+        ])
 
-        $teams = Team::orderBy('name')
-            ->get();
-        $players = Player::orderBy('name')
-            ->get();
-        $games= Game::orderBy('id')
-            ->get();
-        $coaches = Coach::orderBy('name')
-            ->get();
-        $posts = Post::orderBy('title')
-            ->get();
+        $club = Club::with( 'player', 'game', 'coach', 'post')
+            ->findOrFail($id);
 
-        return view('club.index')
+        return view('club.show')
             ->with([
-                'teams' => $teams,
-                'players' => $players,
-                'games' => $games,
-                'coaches' => $coaches,
-                'posts' => $posts,
+                'club' => $club,
             ]);
     }
 }

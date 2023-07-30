@@ -12,4 +12,12 @@ return [
     'coaches' => 'Coaches',
     'author' => 'Author',
     'authors' => 'Authors',
+
+    'login' => 'Login',
+    'register' => 'Register',
+    'logout' => 'Logout',
+    'name' => 'Name',
+    'username' => 'Username',
+    'password' => 'Password',
+    'passwordConfirmation' => 'Password Confirmation',
 ];

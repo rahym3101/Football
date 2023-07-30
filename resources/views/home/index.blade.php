@@ -14,7 +14,9 @@
                         <a href="{{ route('home', $team->id) }}" class="text-decoration-none">
                             <img src="{{ asset('img/teams/' . $team->id . '.png') }}" alt="{{ $team->name }}" class="img-fluid" style="height:12rem";>
                             <div class="text-center h5 text-dark">
-                                {{ $team->name }}
+                                <a href="{{ route('clubs.show', $team->id) }}">
+                                    {{ $team->name }}
+                                </a>
                             </div>
                         </a>
                     @endforeach
