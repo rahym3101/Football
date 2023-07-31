@@ -3,7 +3,16 @@
 
 return [
     'appName' => 'FOOTBALL',
-    'game' => '',
+    'game' => 'Oýun',
+    'games' => 'Oýunlar',
+    'player' => 'Oýunçy',
+    'players' => 'Oyunçylar',
+    'post' => 'Habar',
+    'posts' => 'Habarlar',
+    'coach' => 'Tälimçi',
+    'coaches' => 'Tälimçiler',
+    'author' => 'Awtor',
+    'authors' => 'Awtorlar',
 
 
     'login' => 'Hasabyma gir',

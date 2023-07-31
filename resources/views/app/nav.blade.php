@@ -22,16 +22,16 @@
                     @csrf
                 </form>
             @else
-                <li class="nav-item">
-                    <a class="nav-link link-warning" href="{{ route('login') }}">
-                        <i class="bi-box-arrow-in-right"></i> @lang('app.login')
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link-warning" href="{{ route('register') }}">
-                        <i class="bi-person-add"></i> @lang('app.register')
-                    </a>
-                </li>
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link link-warning" href="{{ route('login') }}">--}}
+                        {{--<i class="bi-box-arrow-in-right"></i> @lang('app.login')--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link link-warning" href="{{ route('register') }}">--}}
+                        {{--<i class="bi-person-add"></i> @lang('app.register')--}}
+                    {{--</a>--}}
+                {{--</li>--}}
             @endauth
         </ul>
     </div>

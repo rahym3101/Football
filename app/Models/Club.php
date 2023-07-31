@@ -21,9 +21,9 @@ class Club extends Model
         'updated_at' => 'datetime',
     ];
 
-    public  function team(): HasOne
+    public  function team(): HasMany
     {
-        return $this->hasOne(Team::class);
+        return $this->hasMany(Team::class);
     }
 
     public  function coach(): BelongsTo

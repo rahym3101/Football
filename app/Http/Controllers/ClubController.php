@@ -12,20 +12,46 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
-class ClubController extends Controller
+class
+ClubController extends Controller
 {
-    public function show($id)
-    {
-        $request->validate([
-            
-        ])
+//    public function index(Request $request)
+//    {
+//        $clubs = Club::with( 'team', 'player', 'game', 'coach', 'post')
+//            ->findOrFail($request);
+//        $games = Game::orderBy('name')
+//            ->get();
+//        $players = Player::orderBy('name')
+//            ->get();
+//        $teams = Team::orderBy('name')
+//            ->get();
+//        $coaches = Coach::orderBy('name')
+//            ->get();
+//
+//        return view('car.index')
+//            ->with([
+//                'clubs' => $clubs,
+//                'players' => $players,
+//                'teams' => $teams,
+//                'coaches' => $coaches,
+//                'games' => $games,
+//            ]);
+//    }
 
-        $club = Club::with( 'player', 'game', 'coach', 'post')
-            ->findOrFail($id);
+    public function show(Request $request)
+    {
+        $clubs = Club::with( 'team', 'player', 'game', 'coach', 'post')
+            ->findOrFail($request);
+        $games = Game::with('sort','date','opponent');
+        $players= Player::with('name','surname');
+        $teams = Team::with('name');
 
         return view('club.show')
             ->with([
-                'club' => $club,
+                'clubs' => $clubs,
+                'games' => $games,
+                'players' => $players,
+                'teams' => $teams,
             ]);
     }
 }

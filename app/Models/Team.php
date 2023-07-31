@@ -17,8 +17,8 @@ class Team extends Model
     public $timestamps = false;
 
 
-    public function Club(): HasOne
+    public function Club(): BelongsTo
     {
-        return $this->hasOne(Club::class);
+        return $this->belongsTo(Club::class);
     }
 }
