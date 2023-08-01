@@ -13,6 +13,7 @@ return [
     'coaches' => 'Tälimçiler',
     'author' => 'Awtor',
     'authors' => 'Awtorlar',
+    'which club do you support?' => 'Siz haysy toparyn fanady?',
 
 
     'login' => 'Hasabyma gir',

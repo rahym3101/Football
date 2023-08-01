@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
 
 Route::controller(HomeController::class)
     ->group(function (){
@@ -26,5 +26,7 @@ Route::controller(ClubController::class)
     ->prefix('clubs')
     ->name('clubs.')
     ->group(function (){
+        Route::get('', 'index')->name('index');
         Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
+        Route::post('/active', 'active')->name('active')->middleware('auth');
     });

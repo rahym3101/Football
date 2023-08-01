@@ -41,7 +41,7 @@
                         <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-sm w-100">
+                    <button type="submit" class="btn btn-success btn-sm w-100">
                         @lang('app.register')
                     </button>
                 </form>

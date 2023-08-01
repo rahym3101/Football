@@ -12,6 +12,7 @@ return [
     'coaches' => 'Coaches',
     'author' => 'Author',
     'authors' => 'Authors',
+    'which club do you support?' => 'Which club do you support?',
 
     'login' => 'Login',
     'register' => 'Register',

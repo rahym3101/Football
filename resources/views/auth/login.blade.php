@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">@lang('app.username') <span class="text-danger">*</span></label>
+                        <label for="username" class="form-label">@lang('app.username') <span class="text-success">*</span></label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" required autofocus>
                         @error('username')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -22,13 +22,33 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">@lang('app.password') <span class="text-danger">*</span></label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                        <div class="row g-2">
+                            <div class="col">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-light" id="btn-password" value="0"><i class="bi-eye-slash-fill"></i></button>
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById('btn-password').addEventListener('click', function () {
+                                if (this.value === '0') {
+                                    this.value = '1';
+                                    this.firstElementChild.className = 'text-primary bi-eye-fill';
+                                    this.parentElement.previousElementSibling.firstElementChild.setAttribute('type', 'text');
+                                } else {
+                                    this.value = '0';
+                                    this.firstElementChild.className = 'bi-eye-slash-fill';
+                                    this.parentElement.previousElementSibling.firstElementChild.setAttribute('type', 'password');
+                                }
+                            })
+                        </script>
                         @error('password')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-sm w-100">
+                    <button type="submit" class="btn btn-success btn-sm w-100">
                         @lang('app.login')
                     </button>
                 </form>

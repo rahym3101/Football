@@ -12,8 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
-class
-ClubController extends Controller
+class ClubController extends Controller
 {
 //    public function index(Request $request)
 //    {
@@ -38,12 +37,12 @@ ClubController extends Controller
 //            ]);
 //    }
 
-    public function show(Request $request)
+    public function show($id)
     {
         $clubs = Club::with( 'team', 'player', 'game', 'coach', 'post')
-            ->findOrFail($request);
+            ->findOrFail($id);
         $games = Game::with('sort','date','opponent');
-        $players= Player::with('name','surname');
+        $players= Player::with('id','name','surname');
         $teams = Team::with('name');
 
         return view('club.show')
