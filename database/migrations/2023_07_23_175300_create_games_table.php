@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
             $table->string('sort');
             $table->string('opponent');
+            $table->string('kickoff');
+            $table->string('date');
         });
     }
 

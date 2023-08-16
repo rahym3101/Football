@@ -20,6 +20,7 @@ class ClubFactory extends Factory
             'player_id' => $player->id,
             'post_id' => $post->id,
             'game_id' => $game->id,
+            'rating' => rand(1,5),
         ];
     }
 }

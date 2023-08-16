@@ -12,8 +12,9 @@ class CoachFactory extends Factory
         return [
             'name' => fake()->firstName(),
             'surname' => fake()->lastName(),
-            'birthday' => fake()->dateTimeBetween('-70 year', '-38 week'),
+            'birthday' => fake()->dateTimeBetween('-70 year', '-38 year'),
             'salary' => rand(500,5000),
+            'nation' => $this->faker->country(),
         ];
     }
 }

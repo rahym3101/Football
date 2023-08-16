@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->foreignId('author_id')->references('id')->on('authors')->cascadeOnDelete();
+            $table->foreignId('tag_id')->references('id')->on('tags')->cascadeOnDelete();
             $table->timestamps();
             $table->string('title');
         });

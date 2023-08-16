@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('post_id')->references('id')->on('posts')->cascadeOnDelete();
             $table->foreignId('coach_id')->references('id')->on('coaches')->cascadeOnDelete();
             $table->foreignId('player_id')->references('id')->on('players')->cascadeOnDelete();
+            $table->unsignedDouble('rating')->default(0);
             $table->timestamps();
         });
     }

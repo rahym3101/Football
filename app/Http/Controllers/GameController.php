@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
-use App\Models\Player;
+use Illuminate\Http\Request;
+use App\Models\Club;
 use App\Models\Game;
+use App\Models\Team;
 use App\Models\Post;
 use App\Models\Coach;
-use App\Models\Club;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\App;
+use App\Models\Player;
+use App\Http\Controllers\ClubController;
 
-class ClubController extends Controller
+class GameController extends Controller
 {
     public function show($id)
     {
@@ -30,14 +30,14 @@ class ClubController extends Controller
         $team = Team::find($id);
         $post = Post::find($id);
 
-        return view('club.show')
+        return view('game.show')
             ->with([
                 'club' => $club,
                 'player' => $player,
                 'team' => $team,
-                'coach' => $coach,
                 'game' => $game,
                 'games' => $games,
+                'coach' => $coach,
                 'post' => $post,
             ]);
     }

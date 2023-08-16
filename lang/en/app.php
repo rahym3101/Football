@@ -13,6 +13,7 @@ return [
     'author' => 'Author',
     'authors' => 'Authors',
     'which club do you support?' => 'Which club do you support?',
+    'nations' => 'Nation',
 
     'login' => 'Login',
     'register' => 'Register',

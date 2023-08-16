@@ -17,8 +17,13 @@ class Team extends Model
     public $timestamps = false;
 
 
-    public function Club(): BelongsTo
+    public function club(): BelongsTo
     {
         return $this->belongsTo(Club::class);
+    }
+
+    public function game(): BelongsTo
+    {
+        return $this->belongsTo(Game::class);
     }
 }
